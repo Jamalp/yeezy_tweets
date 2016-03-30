@@ -1,0 +1,120 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {box-sizing: inherit;}
+*:focus {outline: 0;}
+
+body {
+	font-family:Helvetica;
+	height:100vh;
+	width:100vw;
+	position:relative;
+	margin:0;
+	padding:0;
+}
+
+body.bg-1 {
+	background: url('images/1.jpg') center center no-repeat;
+		background-size:cover;
+}
+
+body.bg-2 {
+	background: url('images/2.jpg') center center no-repeat;
+		background-size:cover;
+}
+
+body.bg-3 {
+	background: url('images/3.jpg') center center no-repeat;
+		background-size:cover;
+}
+body.bg-4 {
+	background: url('images/4.jpg') center center no-repeat;
+		background-size:cover;
+}
+body.bg-5 {
+	background: url('images/5.jpg') center center no-repeat;
+		background-size:cover;
+}
+body.bg-6 {
+	background: url('images/6.jpg') center center no-repeat;
+		background-size:cover;
+}
+body.bg-7 {
+	background: url('images/7.jpg') center center no-repeat;
+		background-size:cover;
+}
+
+section {
+	height:100%;
+	width:100%;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	background-color:rgba(0,0,0,0.4);
+}
+
+section .wrapper {
+	width:70%;
+	margin:0 auto;
+}
+
+a {
+	color:#efefef;
+	font-size:56px;
+	line-height:72px;
+	text-decoration: none;
+	transition: all 0.4s ease;
+	opacity:0;
+	display:block;
+	transform: translateY(5%);
+	font-family: 'Lora', serif;
+}
+
+a:hover {
+	color:#f78c58;
+}
+
+a.show {
+	opacity:1;
+	transform: translateY(0);
+}
+
+span {
+	font-style:italic;
+	display:block;
+	text-align: right;
+	color:#efefef;
+	transition: all 0.4s ease;
+	transition-delay: 0.5s;
+	opacity:0;
+	font-size:22px;
+	transform: translateY(5%);font-family: 'Just Me Again Down Here', cursive;
+}
+
+span.show {
+	opacity:1;
+	transform: translateY(0);
+}
+
+#light
+{
+	position:absolute;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+	z-index:-1;
+}
+
+
+
+@media (max-width: 600) {
+	a {
+		font-size:42px;
+		line-height:1;
+	}
+}
