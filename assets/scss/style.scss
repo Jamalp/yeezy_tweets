@@ -16,7 +16,37 @@ body {
 	overflow:hidden;
 }
 
+ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+	list-style-position:inside;
+	display:flex;
+	
+	li {
+		margin:0;
+		padding:0;
+		color:white;
+		font-family:$relative;
+		@include font-size(14px);
+		margin-left:30px;
+		cursor:pointer;
+		&:first-child {
+			margin-left:auto;
+		}
+		
+	}
+}
 
+p {
+	margin:0;
+	padding:0;
+	-webkit-text-stroke: 1px black;
+	@include font-size(28px);
+	@include line-height(41px);
+	font-family: $vcr;
+	text-transform:uppercase;
+}
 
 body.bg-1 {
 	background: url('assets/images/1.jpg') center center no-repeat;
@@ -52,20 +82,16 @@ body.bg-7 {
 section {
 	height:100%;
 	width:100%;
-	display:flex;
 	position:relative;
-	align-items: center;
-	justify-content: center;
 	background-color:rgba(0,0,0,0.4);
 
 	.wrapper {
-		width:45%;
+		width:65%;
 		margin:0 auto;
-		// position:absolute;
-		// top:50%;
-		// left:50%;
-
-
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%, -50%);
 
 	}
 }
@@ -75,45 +101,47 @@ section {
 
 p.tweet {
 	color:white;
-	font-family: $vcr;
-	text-transform:uppercase;
-	-webkit-text-stroke: 1px black;
-	@include font-size(28px);
-	@include line-height(41px);
 	text-align:center;
-	text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-	  font-smoothing: antialiased;
 	.ghost,
 	.glitch {
 	  opacity: 0.25;
 	}
 }
 
-a:hover {
-	color:#f78c58;
+.btn-wrapper {
+	display:flex;
+	flex-direction:column;
+	position:absolute;
+	bottom:130px;
+	left:0;
+	right:0;
 }
 
-a.show {
-	opacity:1;
-	transform: translateY(0);
+.btn {
+	background-color:black;
+	padding:0 5px;
+	position:relative;
+	margin:0 auto;
+	cursor:pointer;
+
+	&:first-child {
+		margin-bottom:30px;
+	}
+
+	p {
+		position:relative;
+		line-height:1;
+		top:-9px;
+		color:white;
+		transition:color 0.3s ease;
+		&:hover {
+			color:#f78c58;
+		}
+
+	}
+
 }
 
-// span {
-// 	font-style:italic;
-// 	display:block;
-// 	text-align: right;
-// 	color:#efefef;
-// 	transition: all 0.4s ease;
-// 	transition-delay: 0.5s;
-// 	opacity:0;
-// 	font-size:22px;
-// 	transform: translateY(5%);font-family: 'Just Me Again Down Here', cursive;
-// }
-
-span.show {
-	opacity:1;
-	transform: translateY(0);
-}
 
 
 
@@ -135,7 +163,14 @@ span.show {
 	}
 }
 
-
+footer.footer {
+	position:fixed;
+	left:0;
+	right:0;
+	bottom:0;
+	padding-right:65px;
+	padding-bottom:65px;
+}
 
 @media (max-width: 600px) {
 	.fullscreen-bg {
