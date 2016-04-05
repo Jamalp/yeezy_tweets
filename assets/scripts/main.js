@@ -168,14 +168,14 @@ var app = app || {};
 			var keys = Object.keys(obj)
 			var tweet = obj[keys[ keys.length * Math.random() << 0]]
 			console.log(obj);
-			app.main.createString(tweet.Date, tweet.Tweet, tweet.Link);
+			app.main.updateMeta(tweet.Date, tweet.Retweets, tweet.Likes);
 			app.main.transmitTweet(tweet.Tweet, tweet.Link);
 		},
 
-		createString : function(date, tweet, link) {
-			var app = $('#app');
-			var dateEl = app.find('span');
-			var tweetText = app.find('.tweet');
+		updateMeta : function(date, retweets, likes) {
+			console.log(retweets);
+			console.log(likes);
+			console.log(date);
 		},
 
 		init : function() {
