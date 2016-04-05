@@ -13,7 +13,7 @@ var app = app || {};
 			$('body').addClass(bgClass);
 		},
 
-		transmitTweet : function(tweetText) {
+		transmitTweet : function(tweetText, tweetLink) {
 			var $container, $message, $paragraph, MESSAGES, animate, initialise, scramble;
 
 				MESSAGES = [];
@@ -132,10 +132,10 @@ var app = app || {};
 				  var index, j, len, text;
 				  for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
 				    text = MESSAGES[index];
-				    $message.append("<p class='tweet'>");
+				    $message.append("<a href='"+tweetLink+"' class='tweet' target='_blank'>");
 
 				  }
-				  $paragraph = $container.find("p");
+				  $paragraph = $container.find("a");
 				  animate();
 				};
 
@@ -167,18 +167,15 @@ var app = app || {};
 		createTweets : function(obj) {
 			var keys = Object.keys(obj)
 			var tweet = obj[keys[ keys.length * Math.random() << 0]]
+			console.log(obj);
 			app.main.createString(tweet.Date, tweet.Tweet, tweet.Link);
-			app.main.transmitTweet(tweet.Tweet);
+			app.main.transmitTweet(tweet.Tweet, tweet.Link);
 		},
 
 		createString : function(date, tweet, link) {
 			var app = $('#app');
 			var dateEl = app.find('span');
-			var tweetText = app.find('a');
-
-			tweetText.text(tweet).addClass('show');
-			tweetText.attr('href', link);
-			dateEl.text('-Yeezy ' + date).addClass('show');
+			var tweetText = app.find('.tweet');
 		},
 
 		init : function() {
