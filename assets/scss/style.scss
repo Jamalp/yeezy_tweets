@@ -31,6 +31,7 @@ ul {
 		@include font-size(14px);
 		margin-left:30px;
 		cursor:pointer;
+		transition:color 0.3s ease;
 		&:first-child {
 			margin-left:auto;
 		}
@@ -142,9 +143,6 @@ p.tweet {
 
 }
 
-
-
-
 .fullscreen-bg {
     position: fixed;
     top: 0;
@@ -170,6 +168,13 @@ footer.footer {
 	bottom:0;
 	padding-right:65px;
 	padding-bottom:65px;
+	
+	
+}
+.footer__links {
+	li:hover {
+		color:#f78c58;
+	}
 }
 
 @media (max-width: 600px) {
