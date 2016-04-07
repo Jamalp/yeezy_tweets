@@ -144,7 +144,8 @@ var app = app || {};
 
 		moreTweets : function() {
 			$('#moreTweets').on('click', function() {
-				$('p.tweet').fadeOut(function() {
+				console.log(9);
+				$('a.tweet').fadeOut(function() {
 					$(this).remove();
 						app.main.getTweets();
 				});
@@ -167,20 +168,57 @@ var app = app || {};
 		createTweets : function(obj) {
 			var keys = Object.keys(obj)
 			var tweet = obj[keys[ keys.length * Math.random() << 0]]
-			console.log(obj);
 			app.main.updateMeta(tweet.Date, tweet.Retweets, tweet.Likes);
 			app.main.transmitTweet(tweet.Tweet, tweet.Link);
 		},
 
 		updateMeta : function(date, retweets, likes) {
-			console.log(retweets);
-			console.log(likes);
-			console.log(date);
+			$('.retweets').text(retweets + ' RETWEETS');
+			$('.likes').text(likes + ' LIKES');
+			$('.date').text(date);
+		},
+
+		overlayEvents : function() {
+			var $el = $('li[data-overlayInit]');
+			var $close = $('.overlay__close');
+
+
+			$el.on('click', function() {
+				app.main.openOverlay();
+				var source = $(this).attr('data-overlayInit');
+				var target = $('.overlay__items[data-overlayTarget="'+source+'"]');
+				$('.overlay__items').not(target).removeClass('show');
+				// if ( !target.hasClass('show') ) {
+					target.addClass('show');
+				// }
+			});
+
+			$close.on('click', function() {
+				app.main.closeOverlay();
+			});
+
+		},
+
+		openOverlay : function() {
+			var $overlay = $('.overlay');
+
+			if ( !$overlay.hasClass('show') ) {
+				$overlay.addClass('show');
+			}
+		},
+
+		closeOverlay : function() {
+			var $overlay = $('.overlay');
+
+			if ( $overlay.hasClass('show') ) {
+				$overlay.removeClass('show');
+			}
 		},
 
 		init : function() {
 			app.main.getTweets();
 			app.main.moreTweets();
+			app.main.overlayEvents();
 		}
 	};
 

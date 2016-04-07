@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Ultra Light Vibes</title>
-		<link rel="stylesheet" href="beams.css" >
+		<link rel="stylesheet" href="assets/css/style.css" >
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,14 +36,15 @@
 				<source src="https://s3.amazonaws.com/ultralightbeaming/bg.mp4" type="video/mp4">
 			</video>
 		</div>
-		<div class="date meta">03/04/1978</div>
+		<div class="date meta"></div>
 		<section id="app">
 			<div class="wrapper" id="container">
-				<div class="retweets meta">20,008</div>
+				<div class="retweets meta"></div>
 			  <div id="message" class="tweet-message"></div>
-			  <div class="likes meta">20881</div>
+			  <div class="likes meta"></div>
 			</div>
 			<div class="btn-wrapper">
+
 			    <div class="btn" id="moreTweets"><p>MORE POSITIVE VIBES</p></div>
 				<div is="initShare" class="btn"><p>SHARE</p></div>
 			</div>
@@ -51,19 +52,36 @@
 		
 		<footer class="footer">
 			<ul class="footer__links">
-				<li id="footerHash">#ultralightvibes</li>
-				<li id="footerAbout">About</li>
-				<li id="footerCredits">Credits</li>
+				<li class="colors" id="footerHash" data-overlayInit="navLinks">#ultralightvibes</li>
+				<li class="colors" id="footerAbout" data-overlayInit="about">About</li>
+				<li class="colors" id="footerCredits" data-overlayInit="credits">Credits</li>
 			</ul>
 		</footer>
-
+		<div class="overlay show">
+			<div class="wrapper">
+				<div class="overlay__close colors">CLOSE X</div>
+				<nav class="overlay__items show" data-overlayTarget="navLinks">
+					<ul>
+						<li><a class="colors" href="#">FACEBOOK</a></li>
+						<li><a class="colors" href="#">TWITTER</a></li>
+						<li><a class="colors" href="#">Email</a></li>
+					</ul>
+				</nav>
+				<div class="overlay__items" data-overlayTarget="about">
+					<p>Get on that ultra light beam with Yeezy's life affirming tweets<br>#ultralightvibes</p>
+				</div>
+				<div class="overlay__items" data-overlayTarget="credits">
+					<p>MADE BY <span class="j">Jamal</span> + <span class="l">LOUIS</span> + <span class="n">NIRMALA</span></p>
+				</div>
+			</div>
+		</div>
 		<audio autoplay>
 		  <source src="https://s3.amazonaws.com/ultralightbeaming/beaming.mp3" type="audio/mpeg">
 		</audio>
 
 		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script type="text/javascript" src="tabletop.js"></script>
-		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="assets/scripts/min/main-min.js"></script>
 
 	</body>
 </html>
