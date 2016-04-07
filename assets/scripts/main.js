@@ -31,7 +31,7 @@ var app = app || {};
 				  var $element, addGlitch, character, defaults, ghostCharacter, ghostCharacters, ghostLength, ghostText, ghosts, glitchCharacter, glitchCharacters, glitchIndex, glitchLength, glitchProbability, glitchText, glitches, i, j, k, letter, object, order, output, parameters, ref, results, settings, shuffle, target, textCharacters, textLength, wrap;
 				  defaults = {
 				    probability: 0.2,
-				    glitches: '=+%@*!-|/\\',
+				    glitches: '=+%*-|/\\',
 				    blank: '',
 				    duration: text.length * 30,
 				    ease: 'easeInOutQuad',
