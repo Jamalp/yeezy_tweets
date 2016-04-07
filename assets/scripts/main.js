@@ -179,8 +179,9 @@ var app = app || {};
 		},
 
 		overlayEvents : function() {
-			var $el = $('li[data-overlayInit]');
+			var $el = $('*[data-overlayInit]');
 			var $close = $('.overlay__close');
+			var footerEl = $('.footer__links').find('li');
 
 
 			$el.on('click', function() {
@@ -188,9 +189,11 @@ var app = app || {};
 				var source = $(this).attr('data-overlayInit');
 				var target = $('.overlay__items[data-overlayTarget="'+source+'"]');
 				$('.overlay__items').not(target).removeClass('show');
-				// if ( !target.hasClass('show') ) {
-					target.addClass('show');
-				// }
+				target.addClass('show');
+				footerEl.not( $(this) ).addClass('darken');
+				if ( $(this).hasClass('darken') ) {
+					$(this).removeClass('darken');
+				}
 			});
 
 			$close.on('click', function() {
@@ -213,6 +216,7 @@ var app = app || {};
 			if ( $overlay.hasClass('show') ) {
 				$overlay.removeClass('show');
 			}
+			 $('.footer__links').find('li').removeClass('darken');
 		},
 
 		init : function() {
