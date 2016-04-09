@@ -136,27 +136,46 @@ section {
 	}
 }
 .btn-wrapper {
-	display:flex;
-	flex-direction:column;
 	position:absolute;
 	bottom:130px;
 	left:0;
 	right:0;
 
 	@include mobile {
-		bottom:60px;
+		bottom:70px;
+	}
+
+	.btn__container {
+		position:relative;
+		@include mobile {
+			display:flex;
+			flex-direction: column;
+		}
 	}
 }
 
 .btn {
+    position: absolute;
+    left: 0;
+    right: 0;
 	background-color:black;
 	padding:0 5px;
-	position:relative;
 	margin:0 auto;
+	max-width:93px;
 	cursor:pointer;
 	transition:padding 0.2s ease;
+	bottom:-52px;
+
+	@include mobile {
+		position:static;
+	}
 	&:first-child {
 		margin-bottom:30px;
+		max-width:326px;
+		bottom:-30px;
+		@include mobile {
+			margin-bottom:15px;
+		}
 	}
 	&:hover {
 		padding:5px;
@@ -172,7 +191,10 @@ section {
 		top:-9px;
 		color:white;
 		transition:top 0.2s ease;
-
+		
+		@include mobile {
+			@include font-size(16px);
+		}
 
 	}
 
@@ -263,7 +285,7 @@ footer.footer {
 	background-color: #000000;
 	opacity:0;
 	visibility:hidden;
-	display:none;
+	// display:none;
 	pointer-events:none;
 	transition: all 0.5s;
 
