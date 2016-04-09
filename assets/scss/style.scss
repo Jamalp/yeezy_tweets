@@ -19,7 +19,7 @@ body {
 	background-size:cover;
 
 	@include mobile {
-		background: url('https://s3.amazonaws.com/ultralightbeaming/mobile_bg.gif') center center no-repeat;
+		background: url('https://s3.amazonaws.com/ultralightbeaming/mobile_bg_static.jpg') center center no-repeat;
 	}
 }
 a {
