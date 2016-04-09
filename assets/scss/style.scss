@@ -233,6 +233,7 @@ footer.footer {
 	z-index:100;
 	@include mobile {
 		padding:0 40px 30px;
+		position:absolute;
 	}
 
 	ul {
