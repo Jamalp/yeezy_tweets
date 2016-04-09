@@ -144,7 +144,6 @@ var app = app || {};
 
 		moreTweets : function() {
 			$('#moreTweets').on('click', function() {
-				console.log(9);
 				$('a.tweet').fadeOut(function() {
 					$(this).remove();
 						app.main.getTweets();
@@ -181,7 +180,7 @@ var app = app || {};
 		overlayEvents : function() {
 			var $el = $('*[data-overlayInit]');
 			var $close = $('.overlay__close');
-			var footerEl = $('.footer__links').find('li');
+			var $footerEl = $('.footer__links').find('li');
 
 
 			$el.on('click', function() {
@@ -189,16 +188,28 @@ var app = app || {};
 				var source = $(this).attr('data-overlayInit');
 				var target = $('.overlay__items[data-overlayTarget="'+source+'"]');
 				$('.overlay__items').not(target).removeClass('show');
+				$('.overlay__items').not(target).find('.fade-out').removeClass('fade-in');
 				target.addClass('show');
-				footerEl.not( $(this) ).addClass('darken');
+				target.find('.fade-out').addClass('fade-in');
+				$footerEl.not( $(this) ).addClass('darken');
 				if ( $(this).hasClass('darken') ) {
 					$(this).removeClass('darken');
+				}
+				if ($(this).attr('id') == 'initShare') {
+					$('.share__twin').removeClass('darken');
 				}
 			});
 
 			$close.on('click', function() {
 				app.main.closeOverlay();
 			});
+
+			document.onkeydown = function(evt) {
+			    evt = evt || window.event;
+			    if (evt.keyCode == 27) {
+			        app.main.closeOverlay();
+			    }
+			};
 
 		},
 
@@ -217,6 +228,7 @@ var app = app || {};
 				$overlay.removeClass('show');
 			}
 			 $('.footer__links').find('li').removeClass('darken');
+			 $('.overlay__items').removeClass('show');
 		},
 
 		init : function() {

@@ -1,3 +1,4 @@
+@import 'mixins';
 @import 'config';
 
 html {
@@ -14,8 +15,24 @@ body {
 	margin:0;
 	padding:0;
 	overflow:hidden;
-}
+	background: url('https://s3.amazonaws.com/ultralightbeaming/bg.jpg') center center no-repeat;
+	background-size:cover;
 
+	@include mobile {
+		background: url('https://s3.amazonaws.com/ultralightbeaming/mobile_bg.gif') center center no-repeat;
+	}
+}
+a {
+	text-decoration:none;
+
+	@include mobile {
+		@include font-size(42px);
+		line-height:1;
+	}
+}
+ul {
+	padding:0;
+}
 .j {
 	color:#df1dc7;
 }
@@ -26,6 +43,22 @@ body {
 
 .n {
 	color:#35f1ef;
+}
+
+.j,.l,.n {
+	@include mobile {
+		display:block;
+		text-align:center;
+		margin-bottom:25px;
+	}
+}
+
+.m20 {
+
+	@include mobile {
+		display:block;
+		margin-bottom:40px;
+	}
 }
 
 .tweet,p {
@@ -47,6 +80,10 @@ body {
 	.ghost,.glitch {
 	  opacity: 0.25;
 	}
+
+	@include mobile {
+		word-wrap:break-word;
+	}
 }
 
 
@@ -54,7 +91,6 @@ section {
 	height:100%;
 	width:100%;
 	position:relative;
-	background-color:rgba(0,0,0,0.4);
 
 	.wrapper {
 		width:100%;
@@ -69,6 +105,9 @@ section {
 		.tweet-message {
 			width:70%;
 			padding:0 10%;
+			@include mobile {
+				width:100%;
+			}
 		}
 
 	}
@@ -78,8 +117,13 @@ section {
 	align-self:center;
 	@include font-size(14px);
 	font-family:$relative_12;
-
+	&.likes, &.retweets {
+		@include mobile {
+			display:none;
+		}
+	}
 }
+
 
 .date {
 	position:absolute;
@@ -87,6 +131,9 @@ section {
 	right:0;
 	top:130px;
 	text-align:center;
+	@include mobile {
+		top:65px;
+	}
 }
 .btn-wrapper {
 	display:flex;
@@ -95,6 +142,10 @@ section {
 	bottom:130px;
 	left:0;
 	right:0;
+
+	@include mobile {
+		bottom:60px;
+	}
 }
 
 .btn {
@@ -122,6 +173,7 @@ section {
 		color:white;
 		transition:top 0.2s ease;
 
+
 	}
 
 }
@@ -134,6 +186,7 @@ section {
     left: 0;
     overflow: hidden;
     z-index: -100;
+
 	.fullscreen-bg__video {
 	    position: absolute;
 	    top: 0;
@@ -141,6 +194,10 @@ section {
 	    width: 100%;
 	    height: 100%;
 	    object-fit: cover;
+
+	    @include mobile {
+			display:none;
+		}
 	}
 }
 
@@ -152,6 +209,9 @@ footer.footer {
 	padding-right:65px;
 	padding-bottom:65px;
 	z-index:100;
+	@include mobile {
+		padding:0 40px 30px;
+	}
 
 	ul {
 		margin:0;
@@ -161,16 +221,27 @@ footer.footer {
 		display:flex;
 	
 		li {
-			margin:0;
+			margin:0 0 0 30px;
 			padding:0;
 			color:white;
 			font-family:$relative;
 			@include font-size(14px);
-			margin-left:30px;
 			cursor:pointer;
 			transition:color 0.3s ease;
 			&:first-child {
 				margin-left:auto;
+
+				@include mobile {
+					margin-left:0;
+				}
+			}
+
+			@include mobile {
+				margin:0 auto;
+
+				&:last-child {
+					margin-right:0;
+				}
 			}
 
 			&.darken {
@@ -192,7 +263,9 @@ footer.footer {
 	background-color: #000000;
 	opacity:0;
 	visibility:hidden;
-	transition: opacity 0.5s;
+	display:none;
+	pointer-events:none;
+	transition: all 0.5s;
 
 	& > .wrapper {
 		position:relative;
@@ -232,6 +305,7 @@ footer.footer {
 				@include font-size(28px);
 				text-transform:uppercase;
 				text-decoration:none;
+
 			}
 		}
 	}
@@ -241,6 +315,7 @@ footer.footer {
 	opacity:0;
 	visibility:hidden;
 	display:none;
+	pointer-events:none;
 	transition:all 0.5s ease;
 	p {
 		color:white;
@@ -251,5 +326,6 @@ footer.footer {
 	opacity: 1;
 	visibility: visible;
 	display:block;
+	pointer-events:auto;
 }
 
