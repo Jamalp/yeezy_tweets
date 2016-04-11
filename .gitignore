@@ -1,0 +1,28 @@
+# Global
+.DS_Store
+Thumbs.db
+.svn
+.settings
+.buildpath
+.project
+*.pem
+*.psd
+*.swp
+*.sql
+*.pyc
+
+
+# Sublime Editor
+sftp-config.json
+*.sublime-settings
+*.sublime-workspace
+*.sublime-project
+
+build/
+node_modules/
+.codekit-cache/
+config.codekit
+
+# DB
+pullstgdb.sh
+*.sql
