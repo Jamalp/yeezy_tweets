@@ -256,6 +256,31 @@ var app = app || {};
 			    xobj.send(null);  
 		},
 
+		playerControls : function() {
+			var $eq = $('#eq');
+			var audio = document.getElementById('audioTrack');
+			var playing = true;
+
+			$eq.on('click', function() {
+
+				if ( playing === true ) {
+					bodymovin.pause();
+					audio.pause();
+					playing = false;
+					console.log('pausing...');
+					console.log(playing);
+				} else {
+					bodymovin.play();
+					audio.play();
+					playing = true;
+					console.log('playing...');
+					console.log(playing);
+				}
+
+
+			});
+		},
+
 		init : function() {
 			app.main.getTweets();
 			app.main.moreTweets();
