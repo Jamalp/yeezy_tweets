@@ -92,6 +92,10 @@ ul {
 	right:30px;
 	cursor:pointer;
 	width:25px;
+
+	@include mobile {
+		display:none;
+	}
 }
 
 

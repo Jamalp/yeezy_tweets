@@ -276,9 +276,12 @@ var app = app || {};
 					console.log('playing...');
 					console.log(playing);
 				}
-
-
 			});
+
+			// dont play on smaller devices
+			if (  window.innerWidth < 600 ) {
+				audio.pause();
+			}
 		},
 
 		init : function() {
@@ -286,6 +289,7 @@ var app = app || {};
 			app.main.moreTweets();
 			app.main.player();
 			app.main.overlayEvents();
+			app.main.playerControls();
 		}
 	};
 
