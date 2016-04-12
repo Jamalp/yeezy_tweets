@@ -243,7 +243,6 @@ var app = app || {};
 				};
 
 
-			
 			    var xobj = new XMLHttpRequest();
 			        xobj.overrideMimeType("application/json");
 				xobj.open('GET', 'js/data.json', true); // Replace 'my_data' with the path to your file
@@ -267,14 +266,10 @@ var app = app || {};
 					bodymovin.pause();
 					audio.pause();
 					playing = false;
-					console.log('pausing...');
-					console.log(playing);
 				} else {
 					bodymovin.play();
 					audio.play();
 					playing = true;
-					console.log('playing...');
-					console.log(playing);
 				}
 			});
 
