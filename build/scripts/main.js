@@ -279,6 +279,18 @@ var app = app || {};
 			}
 		},
 
+		shareTwitter : function() {
+			$('#shareTwitter').on('click', function(e) {
+				e.preventDefault();
+				console.log('clicked');
+				var msg = encodeURIComponent("Get on an ultralight beam with Yeezy's life affirming tweets. #ultralightbeaming");  
+				var url = encodeURIComponent('http://www.ultralightbeaming.com');  
+				var hashtag = 'ultralightbeaming'
+				var link = 'http://twitter.com/intent/tweet?text=' + msg + '&url=' + url + '&hashtags=' + hashtag; 
+				window.open(link); 
+			});
+		},
+
 		init : function() {
 			app.main.getTweets();
 			app.main.moreTweets();
