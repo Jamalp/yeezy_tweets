@@ -10,6 +10,7 @@ Thumbs.db
 *.swp
 *.sql
 *.pyc
+.htaccess
 
 
 # Sublime Editor
