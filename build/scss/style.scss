@@ -33,25 +33,7 @@ a {
 ul {
 	padding:0;
 }
-.j {
-	color:#df1dc7;
-}
 
-.l {
-	color:#004efe;
-}
-
-.n {
-	color:#35f1ef;
-}
-
-.j,.l,.n {
-	@include mobile {
-		display:block;
-		text-align:center;
-		margin-bottom:25px;
-	}
-}
 
 .m20 {
 
@@ -351,6 +333,29 @@ footer.footer {
 	transition:all 0.5s ease;
 	p {
 		color:white;
+		a {
+			color:inherit;
+		}
+
+		.j {
+			color:#df1dc7;
+		}
+
+		.l {
+			color:#004efe;
+		}
+
+		.n {
+			color:#35f1ef;
+		}
+
+		.j,.l,.n {
+			@include mobile {
+				display:block;
+				text-align:center;
+				margin-bottom:25px;
+			}
+		}
 	}
 }
 
