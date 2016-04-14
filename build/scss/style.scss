@@ -55,7 +55,7 @@ ul {
 	text-decoration:none;
 	display:block;
 	text-shadow:
-    -2px -2px 0 #000,  
+    -2px -2px 0 #000,
      2px -2px 0 #000,
     -2px  2px 0 #000,
      2px  2px 0 #000;
@@ -92,7 +92,7 @@ section {
 		transform: translate(-50%, -50%);
 		display: flex;
 		justify-content:center;
-	
+
 		.tweet-message {
 			width:70%;
 			padding:0 10%;
@@ -182,7 +182,7 @@ section {
 		top:-9px;
 		color:white;
 		transition:top 0.2s ease;
-		
+
 		@include mobile {
 			@include font-size(16px);
 		}
@@ -259,7 +259,7 @@ footer.footer {
 			margin:0;
 			flex-grow:1;
 		}
-	
+
 		li {
 			margin:0 0 0 30px;
 			padding:0;
@@ -288,7 +288,7 @@ footer.footer {
 			&.darken {
 				color:#484848;
 			}
-			
+
 		}
 	}
 }
@@ -384,6 +384,16 @@ footer.footer {
 			}
 		}
 	}
+
+	.about__copy {
+		@include font-size(16px);
+		@include line-height(22px);
+
+		a {
+			font-size:inherit;
+			line-height:50px;
+		}
+	}
 }
 
 .overlay__items.show, .overlay.show {
@@ -392,4 +402,3 @@ footer.footer {
 	display:block;
 	pointer-events:auto;
 }
-
