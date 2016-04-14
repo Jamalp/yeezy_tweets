@@ -1,0 +1,10 @@
+//Caching schema
+<FilesMatch "\.(jpg|css|js)$">
+Header set Cache-Control "max-age=3600"
+</FilesMatch>
+
+//301 Redirect Old File
+Redirect 301 /css/*, /js/*, /fonts/* index.html
+
+//301 Redirect Entire Directory
+RedirectMatch 301 /css, /js, /fonts(.*) /html/$1
