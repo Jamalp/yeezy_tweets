@@ -2,6 +2,8 @@ var app = app || {};
 
 (function($) {
 
+	var firstMsg = true;
+
 	app.main = {
 
 		setBg : function() {
@@ -165,10 +167,18 @@ var app = app || {};
 		},
 
 		createTweets : function(obj) {
-			var keys = Object.keys(obj)
-			var tweet = obj[keys[ keys.length * Math.random() << 0]]
+			var keys = Object.keys(obj);
+			var tweet = obj[keys[ keys.length * Math.random() << 0]];
+			var msg = "Get on that ultralight beam with Yeezy's life affirming tweets. Click below for more positive vibes";
 			app.main.updateMeta(tweet.Date, tweet.Retweets, tweet.Likes);
-			app.main.transmitTweet(tweet.Tweet, tweet.Link);
+
+			if (firstMsg == true) {
+				app.main.transmitTweet(msg, null);
+				firstMsg = false;	
+			} else {
+				app.main.transmitTweet(tweet.Tweet, tweet.Link);
+			}
+
 		},
 
 		updateMeta : function(date, retweets, likes) {
@@ -198,6 +208,12 @@ var app = app || {};
 				if ($(this).attr('id') == 'initShare') {
 					$('.share__twin').removeClass('darken');
 				}
+				if (source == 'credits') {
+					$('.yeezy__cred').addClass('show');
+				} else {
+					$('.yeezy__cred').removeClass('show');
+				}
+
 			});
 
 			$close.on('click', function() {
@@ -229,6 +245,7 @@ var app = app || {};
 			}
 			 $('.footer__links').find('li').removeClass('darken');
 			 $('.overlay__items').removeClass('show');
+			 $('.yeezy__cred').removeClass('show');
 		},
 
 		player : function() {
@@ -277,18 +294,6 @@ var app = app || {};
 			if (  window.innerWidth < 600 ) {
 				audio.pause();
 			}
-		},
-
-		shareTwitter : function() {
-			$('#shareTwitter').on('click', function(e) {
-				e.preventDefault();
-				console.log('clicked');
-				var msg = encodeURIComponent("Get on an ultralight beam with Yeezy's life affirming tweets. #ultralightbeaming");  
-				var url = encodeURIComponent('http://www.ultralightbeaming.com');  
-				var hashtag = 'ultralightbeaming'
-				var link = 'http://twitter.com/intent/tweet?text=' + msg + '&url=' + url + '&hashtags=' + hashtag; 
-				window.open(link); 
-			});
 		},
 
 		init : function() {
